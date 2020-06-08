@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.gebarowski</groupId>
 	<artifactId>endomondo-updater</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2</version>
 	<name>endomondo-updater</name>
 	<description>Endomomondo Updater</description>
 
