@@ -3,7 +3,7 @@
 ```markdown
 Aktualizacja: TIMESTAMP
 ```
-#### Podsumowanie
+
 Pozycja | Nazwa | Wynik [km] |
 ------------ | -------------  | -------------
  1 |TEAM_A | RESULT_A 
