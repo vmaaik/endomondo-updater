@@ -10,43 +10,39 @@ import java.util.List;
 @Slf4j
 public class EndomondoWebScraper {
 
-    private final Document document;
-    private final String challangeId;
     private final WebScraperConverter webScraperConverter;
 
-    public EndomondoWebScraper(final Document document, final WebScraperConverter webScraperConverter) {
-        this.document = document;
+    public EndomondoWebScraper(final WebScraperConverter webScraperConverter) {
         this.webScraperConverter = webScraperConverter;
-        this.challangeId = getChallengeIdFromUri(document.baseUri());
     }
 
-    public List<Integer> getRanks() {
-        log.info("Attempting to get ranks for challengeId: " + challangeId);
-        List<String> ranks = this.document.getElementsByClass("rank")
+    public List<Integer> getRanks(final Document document) {
+        log.info("Attempting to get ranks for challengeId: " + getChallengeIdFromUri(document.baseUri()));
+        List<String> ranks = document.getElementsByClass("rank")
                 .eachText();
         log.info("Ranks scraped: " + ranks);
         return this.webScraperConverter.convertRanks(ranks);
     }
 
-    public List<Long> getProfileIds() {
-        log.info("Attempting to get profile ids for challengeId: " + challangeId);
-        List<String> profileIds = this.document.select("div.p-body")
+    public List<Long> getProfileIds(final Document document) {
+        log.info("Attempting to get profile ids for challengeId: " + getChallengeIdFromUri(document.baseUri()));
+        List<String> profileIds = document.select("div.p-body")
                 .select("a.name")
                 .eachAttr("href");
         log.info("ProfileIds scraped: " + profileIds);
         return this.webScraperConverter.convertProfileIds(profileIds);
     }
 
-    public List<Double> getDistances() {
-        log.info("Attempting to get distances for challengeId: " + challangeId);
-        List<String> distances = this.document.getElementsByClass("nose")
+    public List<Double> getDistances(final Document document) {
+        log.info("Attempting to get distances for challengeId: " + getChallengeIdFromUri(document.baseUri()));
+        List<String> distances = document.getElementsByClass("nose")
                 .eachText();
         log.info("Distances scraped: " + distances);
         return this.webScraperConverter.convertDistances(distances);
     }
 
     private static String getChallengeIdFromUri(final String uri) {
-        log.info("Getting challengeId from URI" + uri);
+        log.info("Getting challengeId from URI: " + uri);
         return uri.substring(37);
     }
 }
