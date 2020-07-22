@@ -37,7 +37,7 @@ public class WebScraperConverter {
 
     private Double parseMile(final String mile) {
         if (mile.equals("(No applicable workouts)") || mile.isEmpty()) {
-            log.warn("There might be no applicable workout or miles are empty: " + mile + " Returning 0.00");
+            log.warn("No applicable workout or miles are empty: " + mile + " Returning 0.00");
             return 0.00;
         } else {
             String mileConverted = mile.replace(" mi", "");

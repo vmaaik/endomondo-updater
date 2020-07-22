@@ -42,7 +42,6 @@ public class EndomondoWebScraper {
     }
 
     private static String getChallengeIdFromUri(final String uri) {
-        log.info("Getting challengeId from URI: " + uri);
         return uri.substring(37);
     }
 }

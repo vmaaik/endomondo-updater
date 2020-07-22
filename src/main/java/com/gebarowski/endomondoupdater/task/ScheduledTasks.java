@@ -17,7 +17,7 @@ public class ScheduledTasks {
         this.groupChallengeUpdater = groupChallengeUpdater;
     }
 
-    @Scheduled(fixedRate = groupUpdaterFixedRate)
+//    @Scheduled(fixedRate = groupUpdaterFixedRate)
     public void scheduleGroupChallengeUpdater() {
         this.groupChallengeUpdater.performPageUpdate();
     }
