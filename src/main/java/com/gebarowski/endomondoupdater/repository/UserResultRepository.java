@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-@Repository
+//@Repository
 public interface UserResultRepository extends CrudRepository<UserResult, Long> {
     @Query(value = "SELECT sum(a.distance) FROM (SELECT distance FROM user_result ORDER BY created DESC LIMIT 15) a", nativeQuery = true)
     int countLatestTotal();
