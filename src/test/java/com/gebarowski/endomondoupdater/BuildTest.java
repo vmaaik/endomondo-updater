@@ -15,7 +15,7 @@ public class BuildTest {
 
     @Test
     public void test2() {
-        int test = 4;
+        int test = 7;
         Assert.assertEquals(test, 1);
     }
 }
