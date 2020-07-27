@@ -18,4 +18,11 @@ public class BuildTest {
         int test = 2;
         Assert.assertEquals(test, 1);
     }
+
+
+    @Test
+    public void test3() {
+        int test = 1;
+        Assert.assertEquals(test, 1);
+    }
 }
